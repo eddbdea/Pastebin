@@ -23,8 +23,9 @@ export async function insertVariables(textContent) {
     await pool.query('INSERT INTO texts (text) VALUES ($1)', [textContent]);
 }
 
-export async function selectText(textContent) {
-    const result = await pool.query('SELECT text FROM texts WHERE text = $1', [textContent]);
-    const value = result.rows[0];
+export async function selectText() {
+    const result = await pool.query('SELECT * FROM texts');
+    console.log(result.rows);
+    const value = result.rows;
     return value;
 }

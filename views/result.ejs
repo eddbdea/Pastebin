@@ -7,14 +7,11 @@
     <ol id="text-list">
     </ol>
   </body>
-  <script>
-    const listContainer = document.getElementById('text-list');
-    const text = '<%=data%>';
-    function importDataFromDb(text) {
-      const createListElement = document.createElement('li');
-      createListElement.innerText = text;
-      listContainer.appendChild(createListElement);
-    }
-    importDataFromDb(text);
-  </script>
+  <ul>
+    <% if (value && value.length > 0) { %>
+      <% value.forEach(user => { %>
+        <li><%= user.text %></li>
+      <% }); %>
+    <% } %>
+  </ul>
 </html>

@@ -14,12 +14,10 @@ app.get('/', (req, res) => {
     createDbTable();
 })
 
-app.get('/nume', (req, res) => {
-    const value = req.query.text
-    console.log(value);
-    insertVariables(value);
-    selectText(value);
-    res.render('result', {data: value});
+app.get('/nume', async (req, res) => {
+    insertVariables(req.query.text);
+    const value = await selectText();
+    res.render('result', { value });
 })
 
 app.listen(port, () => {
