@@ -4,6 +4,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= name %></h1>
+    <ol id="text-list">
+    </ol>
   </body>
+  <script>
+    const listContainer = document.getElementById('text-list');
+    const text = '<%=data%>';
+    function importDataFromDb(text) {
+      const createListElement = document.createElement('li');
+      createListElement.innerText = text;
+      listContainer.appendChild(createListElement);
+    }
+    importDataFromDb(text);
+  </script>
 </html>

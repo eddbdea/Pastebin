@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { createDbTable, insertVariables } from './db.mjs';
+import { createDbTable, insertVariables, selectText } from './db.mjs';
+
 const app = express();
 const port = 3000;
 
@@ -13,8 +14,12 @@ app.get('/', (req, res) => {
     createDbTable();
 })
 
-app.post('/nume', (req, res) => {
-    res.render('result', {name : req.body.text});
+app.get('/nume', (req, res) => {
+    const value = req.query.text
+    console.log(value);
+    insertVariables(value);
+    selectText(value);
+    res.render('result', {data: value});
 })
 
 app.listen(port, () => {
