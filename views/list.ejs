@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1 class="display-1" id="heading">Text list</h1>
+    </div>
+    <ul class="list-group">
+      <% if (value && value.length > 0) { %>
+        <% value.forEach(user => { %>
+          <% if (user.text.length < 20) { %>
+            <li class="list-group-item"><%= user.text %></li>
+          <% } else { %>
+            <li class="list-group-item" onclick="retrieveText('<%= user.text %>')"><%= user.text.slice(0, 5)%>...</li>
+          <% } %>
+        <% }); %>
+      <% } %>
+    </ul>
+    <script src="./script.js"></script>
+    <script src="/bootstrap/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

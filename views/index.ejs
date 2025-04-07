@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Pastebin</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <form action="/nume" method="GET">
-      <label for="team_name">Enter name: </label>
-      <input id="team_name" type="text" name="text"/>
-      <input type="submit" value="OK" />
+    <div class="container text-center">
+      <h1 class="display-1" id="heading">Pastebin</h1>
+    </div>
+    <form action="/list" method="POST">
+      <div class="mb-3">
+        <label for="textinput" class="form-label">Type your text</label>
+        <input type="text" class="form-control" id="textinput" name="textBody">
+        <div id="savetext" class="form-text">Save your text!</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </body>
   <script src="db.mjs"></script>
+  <script src="/bootstrap/bootstrap.bundle.min.js"></script>
 </html>

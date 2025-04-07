@@ -13,7 +13,7 @@ export async function createDbTable() {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS texts (
             id SERIAL PRIMARY KEY,
-            text TEXT UNIQUE NOT NULL  
+            text TEXT NOT NULL  
         )
     `);
     console.log("Table created successfully");

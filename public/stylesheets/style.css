@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+#heading {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
