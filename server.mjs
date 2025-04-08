@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 
 //render form page
 app.get('/',  async (req, res) => {
-    res.render('index', {title : 'mara'});
+    res.render('index');
     await createDbTable();
 })
 
