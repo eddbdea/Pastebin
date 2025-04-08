@@ -5,5 +5,5 @@ Pastebin is a platform that allows users to store and view text content. If the 
 
 ## Technologies used:
 
-**Backend:** Node.js, Express.js and PostgreSQL for db.
-**Frontend** EJS + Bootstrap for styling.
+  **Backend:** Node.js, Express.js and PostgreSQL for db.
+  **Frontend** EJS + Bootstrap for styling.
