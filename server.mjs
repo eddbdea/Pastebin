@@ -8,7 +8,6 @@ let value = 'null';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
-app.use(express.static('script'));
 
 app.set('view engine', 'ejs');
 
