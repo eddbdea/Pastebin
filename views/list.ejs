@@ -9,12 +9,13 @@
       <h1 class="display-1" id="heading">Text list</h1>
     </div>
     <ul class="list-group">
+      <% const THIRTY = 30; %>
       <% if (value && value.length > 0) { %>
         <% value.forEach(user => { %>
-          <% if (user.text.length < 20) { %>
+          <% if (user.text.length < THIRTY) { %>
             <li class="list-group-item"><%= user.text %></li>
           <% } else { %>
-            <li class="list-group-item" onclick="retrieveText('<%= user.text %>')"><%= user.text.slice(0, 5)%>...</li>
+            <li class="list-group-item"><a href="/list/<%=user.id%>"><%= user.text.slice(0, 5)%>...</a></li>
           <% } %>
         <% }); %>
       <% } %>

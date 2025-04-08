@@ -4,3 +4,4 @@ function retrieveText(txt) {
     const completeText = document.getElementById('final-text');
     completeText.innerText = text;
 }
+

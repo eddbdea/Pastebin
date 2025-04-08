@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { createDbTable, insertVariables, selectText } from './db.mjs';
+import { createDbTable, findText, insertVariables, selectText } from './db.mjs';
 
 const app = express();
 const port = 3000;
@@ -26,8 +26,12 @@ app.post('/list', async (req, res) => {
 })
 
 //show complete text
-app.get('/list/complete-text', (req, res) => {
-    res.render('complete-text');
+app.get('/list/:userId', async (req, res) => {
+    const idValue = req.params.userId;
+    //console.log(idValue);
+    const fullText = await findText(idValue);
+    //console.log(fullText);
+    res.render('complete-text', {fullText});
 })
 
 app.listen(port, () => {
