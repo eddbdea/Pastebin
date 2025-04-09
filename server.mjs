@@ -4,7 +4,6 @@ import { createDbTable, findText, insertVariables, selectText } from './db.mjs';
 
 const app = express();
 const port = 3000;
-let value = 'null';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
@@ -18,18 +17,16 @@ app.get('/',  async (req, res) => {
 })
 
 //insert data into database and show list of texts
-app.post('/list', async (req, res) => {
+app.post('/text/list', async (req, res) => {
     await insertVariables(req.body.textBody);
-    value = await selectText();
-    res.render('list', { value });
+    const text = await selectText();
+    res.render('list', { text });
 })
 
 //show complete text
-app.get('/list/:userId', async (req, res) => {
+app.get('/text/:userId', async (req, res) => {
     const idValue = req.params.userId;
-    //console.log(idValue);
     const fullText = await findText(idValue);
-    //console.log(fullText);
     res.render('complete-text', {fullText});
 })
 
