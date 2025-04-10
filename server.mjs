@@ -19,13 +19,13 @@ app.get('/',  async (req, res) => {
 //insert data into database and show list of texts
 app.post('/text/list', async (req, res) => {
     await insertVariables(req.body.textBody);
-    const text = await selectText();
-    res.render('list', { text });
+    const textList = await selectText();
+    res.render('list', { textList });
 })
 
 //show complete text
-app.get('/text/:userId', async (req, res) => {
-    const idValue = req.params.userId;
+app.get('/text/:bodyId', async (req, res) => {
+    const idValue = req.params.bodyId;
     const fullText = await findText(idValue);
     res.render('complete-text', {fullText});
 })

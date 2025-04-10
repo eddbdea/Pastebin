@@ -10,12 +10,12 @@
     </div>
     <ul class="list-group">
       <% const THIRTY = 30; %>
-      <% if (text && text.length > 0) { %>
-        <% text.forEach(user => { %>
-          <% if (user.body.length < THIRTY) { %>
-            <li class="list-group-item"><%= user.body %></li>
+      <% if (textList && textList.length > 0) { %>
+        <% textList.forEach(text => { %>
+          <% if (text.body.length < THIRTY) { %>
+            <li class="list-group-item"><%= text.body %></li>
           <% } else { %>
-            <li class="list-group-item"><a href="/text/<%=user.id%>"><%= user.body.slice(0, 5)%>...</a></li>
+            <li class="list-group-item"><a href="/text/<%=text.id%>"><%= text.body.slice(0, 5)%>...</a></li>
           <% } %>
         <% }); %>
       <% } %>
