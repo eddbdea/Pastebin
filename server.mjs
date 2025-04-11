@@ -24,8 +24,8 @@ app.post('/text/list', async (req, res) => {
 })
 
 //show complete text
-app.get('/text/:bodyId', async (req, res) => {
-    const idValue = req.params.bodyId;
+app.get('/text/:textId', async (req, res) => {
+    const idValue = req.params.textId;
     const fullText = await findText(idValue);
     res.render('complete-text', {fullText});
 })
